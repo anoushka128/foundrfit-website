@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page-blue: #015aa1;
+  --page-green: #30a045;
+  --page-ink: #0f172a;
+  --page-muted: #5b6b80;
+  --page-surface: #ffffff;
+  --page-bg: #f5f8fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--page-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(1, 90, 161, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(48, 160, 69, 0.1), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #f3f7f8 100%);
+  color: var(--page-ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(48, 160, 69, 0.2);
+  color: #0f172a;
+}
