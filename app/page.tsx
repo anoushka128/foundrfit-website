@@ -146,23 +146,25 @@ function SectionIntro({
   title,
   text,
   centered,
-  dark
+  dark,
+  compact
 }: {
   eyebrow: string;
   title: string;
   text: string;
   centered?: boolean;
   dark?: boolean;
+  compact?: boolean;
 }) {
   return (
     <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className={`text-sm font-semibold uppercase tracking-[0.22em] ${dark ? "text-blue-100" : "text-[#2d678f]"}`}>
         {eyebrow}
       </p>
-      <h2 className={`mt-4 text-3xl font-semibold tracking-tight sm:text-4xl ${dark ? "text-white" : "text-slate-950"}`}>
+      <h2 className={`font-semibold tracking-tight sm:text-4xl ${compact ? "mt-3 text-[2.4rem] leading-tight" : "mt-4 text-3xl"} ${dark ? "text-white" : "text-slate-950"}`}>
         {title}
       </h2>
-      <p className={`mt-4 text-lg leading-8 ${dark ? "text-slate-300" : "text-slate-600"}`}>{text}</p>
+      <p className={`${compact ? "mt-3 text-base leading-7" : "mt-4 text-lg leading-8"} ${dark ? "text-slate-300" : "text-slate-600"}`}>{text}</p>
     </div>
   );
 }
@@ -440,32 +442,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="section-surface-a py-24">
+      <section id="pricing" className="section-surface-a py-16">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <SectionIntro
             eyebrow="Pricing"
             title="Simple plans for founders at every stage"
             text="Free to start, easy to explore, and built to grow with founders who are ready to move faster."
             centered
+            compact
           />
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative rounded-[30px] border p-8 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
-                plan.featured
-                  ? "border-[#2d678f] bg-[#2d678f] text-white"
+              <article
+                key={plan.name}
+                className={`relative rounded-[30px] border p-8 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
+                  plan.featured
+                    ? "border-[#2d678f] bg-[#2d678f] text-white"
                   : "border-slate-200 bg-white text-slate-900"
-              }`}
-            >
+                }`}
+              >
                 {plan.featured ? (
-                  <div className="absolute -top-4 left-8">
-                    <span className="inline-flex rounded-full bg-slate-950 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg">
-                      Most Popular
-                    </span>
+                  <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-blue-100">
+                    <span className="border-b border-white/30 pb-1">Most Popular</span>
                   </div>
-                ) : null}
+                ) : (
+                  <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-transparent">
+                    <span className="border-b border-transparent pb-1">Most Popular</span>
+                  </div>
+                )}
 
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -481,7 +486,7 @@ export default function HomePage() {
                   {plan.description}
                 </p>
 
-                <div className="mt-8 space-y-4">
+                <div className="mt-7 space-y-4">
                   {plan.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <div
@@ -511,7 +516,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
+ 
       <section id="final-cta" className="mx-auto max-w-6xl px-6 pb-24 pt-4 sm:px-10 lg:px-12">
         <div className="rounded-[36px] bg-gradient-to-br from-[#2d678f] to-[#5ca067] px-8 py-16 text-white shadow-[0_24px_72px_rgba(45,103,143,0.18)] sm:px-12">
           <div className="mx-auto max-w-3xl text-center">
