@@ -4,12 +4,12 @@
 
 :root {
   color-scheme: light;
-  --page-blue: #015aa1;
-  --page-green: #30a045;
+  --page-blue: #2d678f;
+  --page-green: #5ca067;
   --page-ink: #0f172a;
   --page-muted: #5b6b80;
   --page-surface: #ffffff;
-  --page-bg: #f5f8fb;
+  --page-bg: #f7fafc;
 }
 
 * {
@@ -25,9 +25,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(1, 90, 161, 0.1), transparent 28%),
-    radial-gradient(circle at top right, rgba(48, 160, 69, 0.1), transparent 24%),
-    linear-gradient(180deg, #f8fbff 0%, #f3f7f8 100%);
+    radial-gradient(circle at top left, rgba(45, 103, 143, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(92, 160, 103, 0.08), transparent 24%),
+    linear-gradient(180deg, #fbfdff 0%, #f6f9fb 100%);
   color: var(--page-ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -40,76 +40,18 @@ a {
 
 .hero-mesh {
   background:
-    radial-gradient(circle at 15% 20%, rgba(1, 90, 161, 0.16), transparent 24%),
-    radial-gradient(circle at 85% 18%, rgba(48, 160, 69, 0.16), transparent 22%),
-    radial-gradient(circle at 50% 55%, rgba(14, 110, 182, 0.08), transparent 28%);
+    radial-gradient(circle at 18% 16%, rgba(45, 103, 143, 0.12), transparent 24%),
+    radial-gradient(circle at 85% 15%, rgba(92, 160, 103, 0.1), transparent 22%);
+}
+
+.calm-hero {
+  opacity: 0.85;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.float-slow {
-  animation: floatSlow 7s ease-in-out infinite;
-}
-
-.float-slower {
-  animation: floatSlower 9s ease-in-out infinite;
-}
-
-.floating-card {
-  animation: cardLift 6s ease-in-out infinite;
-}
-
-.score-pop {
-  animation: scorePop 1.8s ease-out both;
-}
-
-@keyframes floatSlow {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes floatSlower {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-14px);
-  }
-}
-
-@keyframes cardLift {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes scorePop {
-  0% {
-    opacity: 0;
-    transform: translateY(8px) scale(0.96);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 ::selection {
