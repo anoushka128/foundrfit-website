@@ -4,6 +4,7 @@ import {
   BadgeCheck,
   BrainCircuit,
   Check,
+  ChartNoAxesColumnIncreasing,
   Clock3,
   MessageSquareText,
   Search,
@@ -13,66 +14,87 @@ import {
 } from "lucide-react";
 import { LogoMark } from "@/components/foundrfit/logo-mark";
 
+const trustPoints = [
+  "Verified profiles",
+  "Compatibility scoring",
+  "Built for serious founders"
+];
+
+const stats = [
+  {
+    value: "84%",
+    label: "struggle to find the right co-founder"
+  },
+  {
+    value: "76%",
+    label: "waste time on the wrong people"
+  },
+  {
+    value: "68%",
+    label: "want compatibility-based matching"
+  }
+];
+
 const problemCards = [
   {
     title: "Networking is slow and random",
-    text: "Founders still rely on events, DMs, and weak-intent intros that rarely surface the right partner.",
+    text: "Warm intros and founder events still leave too much to luck.",
     icon: Search
   },
   {
     title: "You don’t know who to trust",
-    text: "It is hard to evaluate seriousness, working style, and commitment before you invest real time.",
+    text: "Profiles rarely show how someone actually works, commits, or collaborates.",
     icon: ShieldCheck
   },
   {
     title: "You waste time on the wrong people",
-    text: "Too many conversations look promising at first and fall apart once expectations become clear.",
+    text: "Weeks disappear before you realize the fit was never there.",
     icon: Clock3
   }
 ];
 
-const featureCards = [
+const founderChoiceCards = [
   {
-    title: "AI compatibility matching",
-    text: "Match on skills, personality, and commitment instead of surface-level overlap.",
+    title: "AI-powered matching",
+    text: "Find stronger founder fits based on skills, personality, and commitment.",
     icon: BrainCircuit
   },
   {
-    title: "Verified, serious founders",
-    text: "A higher-signal network built for people who actually want to build something real.",
+    title: "Verified founders",
+    text: "A more credible founder network built for serious startup builders.",
     icon: BadgeCheck
   },
   {
-    title: "Clear fit scoring",
-    text: "See where you align before you spend weeks exploring the wrong partnership.",
-    icon: Check
+    title: "Compatibility scoring",
+    text: "See where you align before you commit real time to a partnership.",
+    icon: ChartNoAxesColumnIncreasing
   },
   {
-    title: "Built-in messaging",
-    text: "Start conversations with the context you need to move faster and smarter.",
+    title: "Faster, better matches",
+    text: "Move from browsing to real conversations with less friction and less guesswork.",
     icon: MessageSquareText
   }
 ];
 
 const steps = [
   {
-    title: "Create your profile",
-    text: "Share your background, goals, strengths, and what you are looking for.",
+    title: "Create Profile",
+    text: "Add your skills, goals, and the kind of co-founder you want.",
     icon: Users
   },
   {
-    title: "Get matched",
-    text: "FoundrFit evaluates compatibility across skills, personality, and commitment.",
+    title: "Get Matched",
+    text: "FoundrFit scores compatibility across the things that matter most.",
     icon: Sparkles
   },
   {
     title: "Connect",
-    text: "Reach out to the highest-fit founders with more confidence and context.",
+    text: "Reach out to high-fit founders with clear context on why you match.",
     icon: MessageSquareText
   },
   {
-    title: "Start building",
-    text: "Move from founder search to actual momentum with a stronger early partnership.",
+    title: "Start Building",
+    text: "Spend less time searching and more time building the right startup team.",
     icon: ArrowRight
   }
 ];
@@ -81,23 +103,23 @@ const testimonials = [
   {
     quote: "Matched in 4 days — now building a fintech startup together.",
     name: "Maya Chen",
-    role: "Student founder",
-    category: "Fintech, Boston",
-    image: "/public/testimonials/maya-chen.svg".replace("/public", "")
+    role: "Student Founder",
+    category: "Boston",
+    image: "/testimonials/maya-chen.svg"
   },
   {
     quote: "The compatibility report showed exactly where we aligned before committing.",
     name: "Arjun Patel",
-    role: "First-time founder",
-    category: "B2B SaaS, Austin",
-    image: "/public/testimonials/arjun-patel.svg".replace("/public", "")
+    role: "First-time Founder",
+    category: "Austin",
+    image: "/testimonials/arjun-patel.svg"
   },
   {
     quote: "Saved me months of trial and error finding the right co-founder.",
     name: "Leah Brooks",
-    role: "Solo founder",
-    category: "Climate tech, Seattle",
-    image: "/public/testimonials/leah-brooks.svg".replace("/public", "")
+    role: "Solo Founder",
+    category: "Seattle",
+    image: "/testimonials/leah-brooks.svg"
   }
 ];
 
@@ -106,7 +128,8 @@ const pricingPlans = [
     name: "Free",
     price: "$0",
     detail: "/month",
-    description: "A simple way to create your profile and start exploring early matches.",
+    description: "Start exploring founder fit with the essentials.",
+    cta: "Get Matched Free",
     features: [
       "Create your founder profile",
       "Limited weekly matches",
@@ -118,8 +141,9 @@ const pricingPlans = [
     name: "Plus",
     price: "$10",
     detail: "/month",
-    description: "For active founders who want better visibility and faster connection.",
+    description: "Best for founders actively looking for the right partner.",
     featured: true,
+    cta: "Start Matching",
     features: [
       "Unlimited matches",
       "Advanced compatibility scoring",
@@ -131,90 +155,99 @@ const pricingPlans = [
     name: "Pro",
     price: "$25",
     detail: "/month",
-    description: "For founders who want premium access, credibility, and more reach.",
+    description: "More visibility and premium access for serious searchers.",
+    cta: "Create Profile",
     features: [
       "Everything in Plus",
       "Verified founder badge",
-      "Featured profile placement",
+      "Featured placement",
       "Exclusive founder events"
     ]
   }
 ];
 
-function SectionIntro({
+function SectionHeader({
   eyebrow,
   title,
   text,
   centered,
-  dark,
-  compact
+  dark
 }: {
   eyebrow: string;
   title: string;
   text: string;
   centered?: boolean;
   dark?: boolean;
-  compact?: boolean;
 }) {
   return (
     <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className={`text-sm font-semibold uppercase tracking-[0.22em] ${dark ? "text-blue-100" : "text-[#2d678f]"}`}>
         {eyebrow}
       </p>
-      <h2 className={`font-semibold tracking-tight sm:text-4xl ${compact ? "mt-3 text-[2.4rem] leading-tight" : "mt-4 text-3xl"} ${dark ? "text-white" : "text-slate-950"}`}>
+      <h2 className={`mt-4 text-3xl font-semibold tracking-tight sm:text-4xl ${dark ? "text-white" : "text-slate-950"}`}>
         {title}
       </h2>
-      <p className={`${compact ? "mt-3 text-base leading-7" : "mt-4 text-lg leading-8"} ${dark ? "text-slate-300" : "text-slate-600"}`}>{text}</p>
+      <p className={`mt-4 text-lg leading-8 ${dark ? "text-slate-300" : "text-slate-600"}`}>{text}</p>
     </div>
   );
 }
 
-function ProductVisual() {
+function ProductMockup() {
   return (
-    <div className="rounded-[32px] border border-white/70 bg-white/78 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl lg:max-w-[620px] lg:ml-auto">
-      <div className="rounded-[28px] border border-slate-100 bg-[#fbfdff] p-5">
+    <div className="rounded-[32px] border border-white/80 bg-white/84 p-4 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur">
+      <div className="rounded-[28px] border border-slate-100 bg-[#fbfdff] p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Top match</p>
-            <h3 className="mt-3 text-[2rem] font-semibold text-slate-950">Compatibility Score</h3>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Top Match</p>
+            <h3 className="mt-3 text-[1.9rem] font-semibold text-slate-950">Compatibility Score</h3>
           </div>
           <div className="rounded-2xl bg-[#edf5ff] p-3 text-[#2d678f]">
             <Sparkles className="h-5 w-5" />
           </div>
         </div>
 
-        <div className="mt-6 flex items-end justify-between gap-4">
-          <div>
-            <div className="text-5xl font-semibold tracking-tight text-slate-950">92%</div>
-            <p className="mt-2 text-sm text-slate-500">High-fit founder match</p>
-          </div>
-          <div className="rounded-full bg-[#e6f4ea] px-3 py-1 text-xs font-semibold text-[#2f7a43]">
-            Strong alignment
-          </div>
-        </div>
-
-        <div className="mt-6 space-y-3">
-          {[
-            ["Skills overlap", "94%"],
-            ["Personality fit", "91%"],
-            ["Commitment level", "92%"]
-          ].map(([label, score]) => (
-            <div key={label} className="rounded-2xl bg-white p-4 ring-1 ring-slate-100">
-              <div className="flex items-center justify-between text-sm text-slate-600">
-                <span>{label}</span>
-                <span className="font-semibold text-slate-900">{score}</span>
+        <div className="mt-7 grid gap-5 sm:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[24px] bg-[#f5f9fc] p-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#2d678f] to-[#5ca067] text-sm font-semibold text-white">
+                AK
               </div>
-              <div className="mt-3 h-2 rounded-full bg-slate-100">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-[#3e86b7] to-[#61b56a]"
-                  style={{ width: score }}
-                />
+              <div>
+                <p className="font-semibold text-slate-950">Ariana Kim</p>
+                <p className="text-sm text-slate-500">Product founder</p>
               </div>
             </div>
-          ))}
+
+            <div className="mt-6 text-5xl font-semibold tracking-tight text-slate-950">92%</div>
+            <p className="mt-2 text-sm text-slate-500">High-fit founder match</p>
+            <div className="mt-4 inline-flex rounded-full bg-[#e6f4ea] px-3 py-1 text-xs font-semibold text-[#2f7a43]">
+              Strong alignment
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              ["Skills overlap", "94%"],
+              ["Personality fit", "91%"],
+              ["Commitment level", "92%"]
+            ].map(([label, score]) => (
+              <div key={label} className="rounded-2xl bg-white p-4 ring-1 ring-slate-100">
+                <div className="flex items-center justify-between text-sm text-slate-600">
+                  <span>{label}</span>
+                  <span className="font-semibold text-slate-900">{score}</span>
+                </div>
+                <div className="mt-3 h-2 rounded-full bg-slate-100">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-[#3e86b7] to-[#61b56a]"
+                    style={{ width: score }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-6 rounded-[24px] bg-[#f5f9fc] p-4">
+        <div className="mt-5 rounded-[24px] bg-[#f5f9fc] p-4">
           <p className="text-sm font-medium text-slate-600">Why this match works</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {["Complementary skill sets", "Aligned ambition", "Compatible working style"].map((item) => (
@@ -237,10 +270,10 @@ export default function HomePage() {
     <main className="overflow-x-hidden text-slate-900">
       <section className="relative">
         <div className="hero-mesh calm-hero absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-6 pb-24 pt-2 sm:px-10 lg:px-12">
-          <header className="flex items-center justify-between py-2">
-            <a href="#top" className="flex items-center gap-3">
-              <LogoMark className="h-16 w-16 shrink-0" />
+        <div className="mx-auto max-w-6xl px-6 pb-20 pt-4 sm:px-10 lg:px-12">
+          <header className="flex items-center justify-between py-3">
+            <a href="#top" className="flex items-center gap-4">
+              <LogoMark className="h-14 w-14 shrink-0" />
               <div>
                 <p className="text-xl font-semibold tracking-tight text-slate-950">FoundrFit</p>
                 <p className="text-base text-slate-500">AI co-founder matching</p>
@@ -251,8 +284,8 @@ export default function HomePage() {
               <a className="text-sm font-medium text-slate-600 transition hover:text-[#2d678f]" href="#problem">
                 Problem
               </a>
-              <a className="text-sm font-medium text-slate-600 transition hover:text-[#2d678f]" href="#solution">
-                Features
+              <a className="text-sm font-medium text-slate-600 transition hover:text-[#2d678f]" href="#why-founders-choose">
+                Why FoundrFit
               </a>
               <a className="text-sm font-medium text-slate-600 transition hover:text-[#2d678f]" href="#pricing">
                 Pricing
@@ -261,19 +294,19 @@ export default function HomePage() {
                 href="#final-cta"
                 className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Get Matched
+                Get Matched Free
               </a>
             </nav>
           </header>
 
-          <div id="top" className="grid items-center gap-8 pt-2 lg:-mt-2 lg:grid-cols-[1fr_0.95fr]">
+          <div id="top" className="grid items-center gap-10 pt-6 lg:grid-cols-[1fr_0.96fr] lg:pt-10">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
                 <Sparkles className="h-4 w-4" />
-                Early access for college entrepreneurs and early founders
+                Built for serious founders
               </div>
 
-              <h1 className="mt-2 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4rem] lg:leading-[1.01]">
+              <h1 className="mt-5 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4.15rem] lg:leading-[1.02]">
                 Find the Right Co-Founder in Days
                 <span className="text-slate-400"> — </span>
                 <span className="bg-gradient-to-r from-[#2d678f] to-[#5ca067] bg-clip-text text-transparent">
@@ -281,44 +314,69 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-2 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
-                Stop wasting time on the wrong people. Get matched with founders who actually fit.
+              <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
+                AI-powered matching based on skills, personality, and commitment.
               </p>
 
-              <div className="mt-4 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href="#final-cta"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d678f] px-6 py-3.5 text-base font-semibold text-white shadow-[0_14px_34px_rgba(45,103,143,0.22)] transition hover:bg-[#255775]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d678f] px-6 py-3.5 text-base font-semibold text-white shadow-[0_14px_34px_rgba(45,103,143,0.18)] transition hover:bg-[#255775]"
                 >
-                  Find My Co-Founder
+                  Get Matched Free
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#how-it-works"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/80 px-6 py-3.5 text-base font-semibold text-slate-700 backdrop-blur transition hover:border-slate-300 hover:text-slate-950"
+                  className="text-sm font-semibold text-[#2d678f] transition hover:text-[#234f6d]"
                 >
-                  See How It Works
+                  See how it works
                 </a>
               </div>
 
               <p className="mt-3 text-sm font-medium text-slate-500">
                 Takes 2 minutes to get your first matches
               </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {trustPoints.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-medium text-slate-700 shadow-sm backdrop-blur"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="lg:-mt-2">
-              <ProductVisual />
-            </div>
+            <ProductMockup />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200/70 bg-white/80 py-6 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
+          <div className="grid gap-4 md:grid-cols-3">
+            {stats.map((stat) => (
+              <article
+                key={stat.label}
+                className="rounded-[24px] border border-slate-200 bg-white p-6 shadow-[0_8px_28px_rgba(15,23,42,0.04)]"
+              >
+                <div className="text-4xl font-semibold tracking-tight text-slate-950">{stat.value}</div>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{stat.label}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="problem" className="section-surface-a py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
-          <SectionIntro
+          <SectionHeader
             eyebrow="Problem"
             title="Finding the right co-founder shouldn’t be this hard"
-            text="The current founder search process is noisy, low-trust, and painfully inefficient. FoundrFit replaces randomness with higher-signal matching."
+            text="Most founders know the search is frustrating. FoundrFit is built to replace randomness with higher-signal matching from the start."
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -342,29 +400,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="solution" className="section-surface-b py-24">
+      <section id="why-founders-choose" className="section-surface-b py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
-          <SectionIntro
+          <SectionHeader
             eyebrow="Why Founders Choose FoundrFit"
-            title="Better founder matching, with less wasted time"
-            text="Everything important happens in one place: better matching, higher-signal profiles, clearer fit scoring, and faster conversations."
+            title="Built to help founders find better matches faster"
+            text="Everything important happens in one place: better matching, verified profiles, compatibility scoring, and a clearer path to the right co-founder."
             centered
           />
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {featureCards.map((feature) => {
-              const Icon = feature.icon;
+            {founderChoiceCards.map((card) => {
+              const Icon = card.icon;
 
               return (
                 <article
-                  key={feature.title}
+                  key={card.title}
                   className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_8px_28px_rgba(15,23,42,0.04)]"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0f6fb] text-[#2d678f]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-slate-950">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{feature.text}</p>
+                  <h3 className="mt-5 text-xl font-semibold text-slate-950">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{card.text}</p>
                 </article>
               );
             })}
@@ -374,10 +432,10 @@ export default function HomePage() {
 
       <section id="how-it-works" className="section-surface-c py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
-          <SectionIntro
+          <SectionHeader
             eyebrow="How It Works"
-            title="A straightforward path from profile to partnership"
-            text="Each step is designed to reduce guesswork and help founders move toward stronger matches faster."
+            title="A clear path from profile to partnership"
+            text="FoundrFit keeps the process simple so founders can understand the product quickly and move from profile to connection with less friction."
           />
 
           <div className="mt-12 grid gap-6 xl:grid-cols-4">
@@ -385,7 +443,10 @@ export default function HomePage() {
               const Icon = step.icon;
 
               return (
-                <article key={step.title} className="relative rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
+                <article
+                  key={step.title}
+                  className="relative rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm"
+                >
                   <div className="flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d678f] text-white">
                       <Icon className="h-5 w-5" />
@@ -406,10 +467,10 @@ export default function HomePage() {
 
       <section className="bg-slate-950 py-24 text-white">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
-          <SectionIntro
+          <SectionHeader
             eyebrow="Testimonials"
-            title="Real founder feedback, not generic social proof"
-            text="Early users care about speed, fit clarity, and wasting less time on the wrong conversations."
+            title="Founders use FoundrFit to reach alignment faster"
+            text="The value is simple: less wasted time, clearer fit, and more confidence before committing to a partnership."
             dark
           />
 
@@ -426,9 +487,9 @@ export default function HomePage() {
                   <Image
                     src={testimonial.image}
                     alt={`${testimonial.name} headshot`}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14 rounded-full object-cover ring-1 ring-white/10"
+                    width={60}
+                    height={60}
+                    className="h-15 w-15 rounded-full object-cover ring-1 ring-white/10"
                   />
                   <div>
                     <p className="font-semibold text-white">{testimonial.name}</p>
@@ -442,24 +503,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="section-surface-a py-12">
+      <section id="pricing" className="section-surface-a py-20">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
-          <SectionIntro
+          <SectionHeader
             eyebrow="Pricing"
             title="Simple plans for founders at every stage"
-            text="Free to start, easy to explore, and built to grow with founders who are ready to move faster."
+            text="Free to start, easy to understand, and built to grow with founders who want better matches faster."
             centered
-            compact
           />
 
-          <div className="mt-5 grid gap-5 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
               <article
                 key={plan.name}
                 className={`relative rounded-[30px] border p-6 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
                   plan.featured
                     ? "border-[#2d678f] bg-[#2d678f] text-white"
-                  : "border-slate-200 bg-white text-slate-900"
+                    : "border-slate-200 bg-white text-slate-900"
                 }`}
               >
                 {plan.featured ? (
@@ -468,18 +528,12 @@ export default function HomePage() {
                       Most Popular
                     </span>
                   </div>
-                ) : (
-                  <div className="h-0" />
-                )}
+                ) : null}
 
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                    <div className="mt-3 flex items-end gap-1">
-                      <span className="text-4xl font-semibold">{plan.price}</span>
-                      <span className={plan.featured ? "text-blue-100" : "text-slate-500"}>{plan.detail}</span>
-                    </div>
-                  </div>
+                <h3 className="text-2xl font-semibold">{plan.name}</h3>
+                <div className="mt-3 flex items-end gap-1">
+                  <span className="text-4xl font-semibold">{plan.price}</span>
+                  <span className={plan.featured ? "text-blue-100" : "text-slate-500"}>{plan.detail}</span>
                 </div>
 
                 <p className={`mt-4 text-sm leading-7 ${plan.featured ? "text-blue-50" : "text-slate-600"}`}>
@@ -509,38 +563,32 @@ export default function HomePage() {
                       : "bg-slate-950 text-white hover:bg-slate-800"
                   }`}
                 >
-                  Start Matching
+                  {plan.cta}
                 </a>
               </article>
             ))}
           </div>
         </div>
       </section>
- 
-      <section id="final-cta" className="mx-auto max-w-6xl px-6 pb-24 pt-4 sm:px-10 lg:px-12">
+
+      <section id="final-cta" className="mx-auto max-w-6xl px-6 pb-24 pt-6 sm:px-10 lg:px-12">
         <div className="rounded-[36px] bg-gradient-to-br from-[#2d678f] to-[#5ca067] px-8 py-16 text-white shadow-[0_24px_72px_rgba(45,103,143,0.18)] sm:px-12">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl sm:leading-tight">
-              Your co-founder is out there — don’t waste months finding them.
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-5xl sm:leading-tight">
+              Get matched with the right co-founder before momentum slips away.
             </h2>
             <p className="mt-5 text-lg leading-8 text-blue-50">
-              Join early founders building smarter startups with better matches from the start.
+              Join early founders building smarter startups with stronger founder fit from the start.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="#top"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-[#2d678f] transition hover:bg-slate-100"
               >
-                Create My Profile
+                Find My Co-Founder
               </a>
-              <a
-                href="#pricing"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10"
-              >
-                View Pricing
-              </a>
+              <span className="text-sm font-medium text-blue-100">Join early founders building smarter startups</span>
             </div>
-            <p className="mt-5 text-sm text-blue-100">Join early founders building smarter startups</p>
           </div>
         </div>
       </section>
