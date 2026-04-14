@@ -79,24 +79,24 @@ const steps = [
 
 const testimonials = [
   {
-    quote: "Matched in 4 days — we’re already building.",
+    quote: "Matched in 4 days — now building a fintech startup together.",
     name: "Maya Chen",
     role: "Student founder",
-    category: "Fintech",
+    category: "Fintech, Boston",
     image: "/public/testimonials/maya-chen.svg".replace("/public", "")
   },
   {
-    quote: "The compatibility report showed exactly where we aligned.",
+    quote: "The compatibility report showed exactly where we aligned before committing.",
     name: "Arjun Patel",
     role: "First-time founder",
-    category: "B2B SaaS",
+    category: "B2B SaaS, Austin",
     image: "/public/testimonials/arjun-patel.svg".replace("/public", "")
   },
   {
-    quote: "This saved me months of trial and error.",
+    quote: "Saved me months of trial and error finding the right co-founder.",
     name: "Leah Brooks",
     role: "Solo founder",
-    category: "Climate tech",
+    category: "Climate tech, Seattle",
     image: "/public/testimonials/leah-brooks.svg".replace("/public", "")
   }
 ];
@@ -235,7 +235,7 @@ export default function HomePage() {
     <main className="overflow-x-hidden text-slate-900">
       <section className="relative">
         <div className="hero-mesh calm-hero absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-6 pb-28 pt-6 sm:px-10 lg:px-12">
+        <div className="mx-auto max-w-6xl px-6 pb-24 pt-6 sm:px-10 lg:px-12">
           <header className="flex items-center justify-between py-4">
             <a href="#top" className="flex items-center gap-3">
               <LogoMark className="h-12 w-12 shrink-0" />
@@ -264,11 +264,11 @@ export default function HomePage() {
             </nav>
           </header>
 
-          <div id="top" className="grid items-center gap-16 pt-16 lg:grid-cols-[1fr_0.95fr] lg:pt-24">
+          <div id="top" className="grid items-center gap-14 pt-14 lg:grid-cols-[1fr_0.95fr] lg:pt-20">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
                 <Sparkles className="h-4 w-4" />
-                Built for college entrepreneurs and early founders
+                Early access for college entrepreneurs and early founders
               </div>
 
               <h1 className="mt-8 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4.25rem] lg:leading-[1.02]">
@@ -280,7 +280,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
-                AI-powered matching based on skills, personality, and commitment.
+                Stop wasting time on the wrong people. Get matched with founders who actually fit.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -288,7 +288,7 @@ export default function HomePage() {
                   href="#final-cta"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d678f] px-6 py-3.5 text-base font-semibold text-white shadow-[0_14px_34px_rgba(45,103,143,0.22)] transition hover:bg-[#255775]"
                 >
-                  Get Matched
+                  Find My Co-Founder
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
@@ -298,6 +298,10 @@ export default function HomePage() {
                   See How It Works
                 </a>
               </div>
+
+              <p className="mt-4 text-sm font-medium text-slate-500">
+                Takes 2 minutes to get your first matches
+              </p>
             </div>
 
             <ProductVisual />
@@ -305,7 +309,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="problem" className="mx-auto max-w-6xl px-6 py-28 sm:px-10 lg:px-12">
+      <section id="problem" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
         <SectionIntro
           eyebrow="Problem"
           title="Finding the right co-founder shouldn’t be this hard"
@@ -332,12 +336,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="solution" className="bg-white/60 py-28">
+      <section id="solution" className="bg-white/60 py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <SectionIntro
-            eyebrow="Solution"
-            title="Meet FoundrFit"
-            text="A cleaner, faster way to discover serious founders who are actually compatible with how you build."
+            eyebrow="Why Founders Choose FoundrFit"
+            title="Better founder matching, with less wasted time"
+            text="Everything important happens in one place: better matching, higher-signal profiles, clearer fit scoring, and faster conversations."
             centered
           />
 
@@ -362,7 +366,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-28 sm:px-10 lg:px-12">
+      <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
         <SectionIntro
           eyebrow="How It Works"
           title="A straightforward path from profile to partnership"
@@ -392,7 +396,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-28 text-white">
+      <section className="bg-slate-950 py-24 text-white">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <SectionIntro
             eyebrow="Testimonials"
@@ -430,11 +434,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="mx-auto max-w-6xl px-6 py-28 sm:px-10 lg:px-12">
+      <section id="pricing" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
         <SectionIntro
           eyebrow="Pricing"
           title="Simple plans for founders at every stage"
-          text="Start free, explore your first matches, and upgrade only when you need deeper insights and more reach."
+          text="Free to start, easy to explore, and built to grow with founders who are ready to move faster."
           centered
         />
 
@@ -490,17 +494,16 @@ export default function HomePage() {
                     : "bg-slate-950 text-white hover:bg-slate-800"
                 }`}
               >
-                Start Free
+                Start Matching
               </a>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="final-cta" className="mx-auto max-w-6xl px-6 pb-28 pt-4 sm:px-10 lg:px-12">
+      <section id="final-cta" className="mx-auto max-w-6xl px-6 pb-24 pt-4 sm:px-10 lg:px-12">
         <div className="rounded-[36px] bg-gradient-to-br from-[#2d678f] to-[#5ca067] px-8 py-16 text-white shadow-[0_24px_72px_rgba(45,103,143,0.18)] sm:px-12">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-100">Final CTA</p>
             <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl sm:leading-tight">
               Your co-founder is out there — don’t waste months finding them.
             </h2>
@@ -512,7 +515,7 @@ export default function HomePage() {
                 href="#top"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-[#2d678f] transition hover:bg-slate-100"
               >
-                Create Your Profile
+                Create My Profile
               </a>
               <a
                 href="#pricing"
