@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import { BarChart3, Clock3, Home, type LucideIcon, ShieldAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const items: { href: Route; label: string; icon: LucideIcon }[] = [
+const items: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/insights", label: "Insights", icon: BarChart3 },
-  { href: "/timeline", label: "Timeline", icon: Clock3 },
-  { href: "/safety", label: "Safety", icon: ShieldAlert }
+  { href: "/", label: "Insights", icon: BarChart3 },
+  { href: "/", label: "Timeline", icon: Clock3 },
+  { href: "/", label: "Safety", icon: ShieldAlert }
 ];
 
 export function BottomNav() {
@@ -25,7 +24,7 @@ export function BottomNav() {
           return (
             <Link
               key={item.href}
-              href={item.href as Route}
+              href={item.href}
               className={cn(
                 "flex flex-col items-center justify-center gap-1 rounded-2xl py-2 text-[11px] font-medium",
                 active ? "bg-white text-ink shadow-card" : "text-ink/55"
