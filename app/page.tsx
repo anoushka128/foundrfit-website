@@ -171,21 +171,21 @@ function SectionIntro({
 
 function ProductVisual() {
   return (
-    <div className="rounded-[32px] border border-white/70 bg-white/78 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl">
-      <div className="rounded-[28px] border border-slate-100 bg-[#fbfdff] p-6">
+    <div className="rounded-[32px] border border-white/70 bg-white/78 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl lg:max-w-[620px] lg:ml-auto">
+      <div className="rounded-[28px] border border-slate-100 bg-[#fbfdff] p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Top match</p>
-            <h3 className="mt-3 text-2xl font-semibold text-slate-950">Compatibility Score</h3>
+            <h3 className="mt-3 text-[2rem] font-semibold text-slate-950">Compatibility Score</h3>
           </div>
           <div className="rounded-2xl bg-[#edf5ff] p-3 text-[#2d678f]">
             <Sparkles className="h-5 w-5" />
           </div>
         </div>
 
-        <div className="mt-8 flex items-end justify-between gap-4">
+        <div className="mt-6 flex items-end justify-between gap-4">
           <div>
-            <div className="text-6xl font-semibold tracking-tight text-slate-950">92%</div>
+            <div className="text-5xl font-semibold tracking-tight text-slate-950">92%</div>
             <p className="mt-2 text-sm text-slate-500">High-fit founder match</p>
           </div>
           <div className="rounded-full bg-[#e6f4ea] px-3 py-1 text-xs font-semibold text-[#2f7a43]">
@@ -193,7 +193,7 @@ function ProductVisual() {
           </div>
         </div>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-6 space-y-3">
           {[
             ["Skills overlap", "94%"],
             ["Personality fit", "91%"],
@@ -214,7 +214,7 @@ function ProductVisual() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-[24px] bg-[#f5f9fc] p-4">
+        <div className="mt-6 rounded-[24px] bg-[#f5f9fc] p-4">
           <p className="text-sm font-medium text-slate-600">Why this match works</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {["Complementary skill sets", "Aligned ambition", "Compatible working style"].map((item) => (
@@ -237,8 +237,8 @@ export default function HomePage() {
     <main className="overflow-x-hidden text-slate-900">
       <section className="relative">
         <div className="hero-mesh calm-hero absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-6 pb-24 pt-0 sm:px-10 lg:px-12">
-          <header className="flex items-center justify-between py-0">
+        <div className="mx-auto max-w-6xl px-6 pb-24 pt-2 sm:px-10 lg:px-12">
+          <header className="flex items-center justify-between py-2">
             <a href="#top" className="flex items-center gap-3">
               <LogoMark className="h-16 w-16 shrink-0" />
               <div>
@@ -266,7 +266,7 @@ export default function HomePage() {
             </nav>
           </header>
 
-          <div id="top" className="grid items-center gap-8 pt-0 lg:-mt-4 lg:grid-cols-[1fr_0.95fr]">
+          <div id="top" className="grid items-center gap-8 pt-2 lg:-mt-2 lg:grid-cols-[1fr_0.95fr]">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
                 <Sparkles className="h-4 w-4" />
@@ -306,7 +306,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="lg:-mt-10">
+            <div className="lg:-mt-2">
               <ProductVisual />
             </div>
           </div>
