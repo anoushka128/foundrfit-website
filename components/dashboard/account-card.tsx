@@ -13,12 +13,12 @@ export function AccountCard() {
 
   async function handleSignOut() {
     await signOut();
-    router.push("/login");
+    router.push("/");
   }
 
   function handleResetDemo() {
     resetDemoData();
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 
   return (

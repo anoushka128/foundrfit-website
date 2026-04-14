@@ -51,8 +51,8 @@ export function LoginForm() {
       </form>
       <p className="mt-4 text-sm text-ink/55">
         New here?{" "}
-        <Link href="/signup" className="font-medium text-ink">
-          Create an account
+        <Link href="/" className="font-medium text-ink">
+          Return to home
         </Link>
       </p>
     </Card>

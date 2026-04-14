@@ -30,7 +30,7 @@ export function SignupForm() {
       return;
     }
     setMessage(result.message ?? "Account created.");
-    router.push("/onboarding");
+    router.push("/");
   }
 
   return (
@@ -59,8 +59,8 @@ export function SignupForm() {
       </form>
       <p className="mt-4 text-sm text-ink/55">
         Already have an account?{" "}
-        <Link href="/login" className="font-medium text-ink">
-          Log in
+        <Link href="/" className="font-medium text-ink">
+          Return to home
         </Link>
       </p>
     </Card>
