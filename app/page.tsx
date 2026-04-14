@@ -309,34 +309,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="problem" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
-        <SectionIntro
-          eyebrow="Problem"
-          title="Finding the right co-founder shouldn’t be this hard"
-          text="The current founder search process is noisy, low-trust, and painfully inefficient. FoundrFit replaces randomness with higher-signal matching."
-        />
+      <section id="problem" className="section-surface-a py-24">
+        <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
+          <SectionIntro
+            eyebrow="Problem"
+            title="Finding the right co-founder shouldn’t be this hard"
+            text="The current founder search process is noisy, low-trust, and painfully inefficient. FoundrFit replaces randomness with higher-signal matching."
+          />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {problemCards.map((card) => {
-            const Icon = card.icon;
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {problemCards.map((card) => {
+              const Icon = card.icon;
 
-            return (
-              <article
-                key={card.title}
-                className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-[0_8px_28px_rgba(15,23,42,0.05)]"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0f6fb] text-[#2d678f]">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight text-slate-950">{card.title}</h3>
-                <p className="mt-4 text-base leading-7 text-slate-600">{card.text}</p>
-              </article>
-            );
-          })}
+              return (
+                <article
+                  key={card.title}
+                  className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-[0_8px_28px_rgba(15,23,42,0.05)]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0f6fb] text-[#2d678f]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-slate-950">{card.title}</h3>
+                  <p className="mt-4 text-base leading-7 text-slate-600">{card.text}</p>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section id="solution" className="bg-white/60 py-24">
+      <section id="solution" className="section-surface-b py-24">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <SectionIntro
             eyebrow="Why Founders Choose FoundrFit"
@@ -366,33 +368,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
-        <SectionIntro
-          eyebrow="How It Works"
-          title="A straightforward path from profile to partnership"
-          text="Each step is designed to reduce guesswork and help founders move toward stronger matches faster."
-        />
+      <section id="how-it-works" className="section-surface-c py-24">
+        <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
+          <SectionIntro
+            eyebrow="How It Works"
+            title="A straightforward path from profile to partnership"
+            text="Each step is designed to reduce guesswork and help founders move toward stronger matches faster."
+          />
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-4">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+          <div className="mt-12 grid gap-6 xl:grid-cols-4">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
 
-            return (
-              <article key={step.title} className="relative rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d678f] text-white">
-                    <Icon className="h-5 w-5" />
+              return (
+                <article key={step.title} className="relative rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d678f] text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="text-sm font-semibold text-slate-400">0{index + 1}</span>
                   </div>
-                  <span className="text-sm font-semibold text-slate-400">0{index + 1}</span>
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-slate-950">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{step.text}</p>
-                {index < steps.length - 1 ? (
-                  <div className="absolute right-[-18px] top-10 hidden h-px w-9 bg-slate-200 xl:block" />
-                ) : null}
-              </article>
-            );
-          })}
+                  <h3 className="mt-6 text-xl font-semibold text-slate-950">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{step.text}</p>
+                  {index < steps.length - 1 ? (
+                    <div className="absolute right-[-18px] top-10 hidden h-px w-9 bg-slate-200 xl:block" />
+                  ) : null}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -434,70 +438,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-12">
-        <SectionIntro
-          eyebrow="Pricing"
-          title="Simple plans for founders at every stage"
-          text="Free to start, easy to explore, and built to grow with founders who are ready to move faster."
-          centered
-        />
+      <section id="pricing" className="section-surface-a py-24">
+        <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
+          <SectionIntro
+            eyebrow="Pricing"
+            title="Simple plans for founders at every stage"
+            text="Free to start, easy to explore, and built to grow with founders who are ready to move faster."
+            centered
+          />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {pricingPlans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`rounded-[30px] border p-8 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
-                plan.featured
-                  ? "border-[#2d678f] bg-[#2d678f] text-white"
-                  : "border-slate-200 bg-white text-slate-900"
-              }`}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                  <div className="mt-4 flex items-end gap-1">
-                    <span className="text-4xl font-semibold">{plan.price}</span>
-                    <span className={plan.featured ? "text-blue-100" : "text-slate-500"}>{plan.detail}</span>
-                  </div>
-                </div>
-                {plan.featured ? (
-                  <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white">
-                    Most Popular
-                  </span>
-                ) : null}
-              </div>
-
-              <p className={`mt-5 text-sm leading-7 ${plan.featured ? "text-blue-50" : "text-slate-600"}`}>
-                {plan.description}
-              </p>
-
-              <div className="mt-8 space-y-4">
-                {plan.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-3">
-                    <div
-                      className={`mt-0.5 flex h-5 w-5 items-center justify-center rounded-full ${
-                        plan.featured ? "bg-white/20 text-white" : "bg-[#eef6ef] text-[#3f8a4f]"
-                      }`}
-                    >
-                      <Check className="h-3.5 w-3.5" />
-                    </div>
-                    <p className={plan.featured ? "text-blue-50" : "text-slate-700"}>{feature}</p>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="#final-cta"
-                className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {pricingPlans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`relative rounded-[30px] border p-8 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
                   plan.featured
-                    ? "bg-white text-[#2d678f] hover:bg-slate-100"
-                    : "bg-slate-950 text-white hover:bg-slate-800"
+                    ? "border-[#2d678f] bg-[#2d678f] text-white"
+                    : "border-slate-200 bg-white text-slate-900"
                 }`}
               >
-                Start Matching
-              </a>
-            </article>
-          ))}
+                {plan.featured ? (
+                  <div className="mb-6">
+                    <span className="inline-flex rounded-full border border-white/20 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#2d678f]">
+                      Most Popular
+                    </span>
+                  </div>
+                ) : null}
+
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold">{plan.name}</h3>
+                    <div className="mt-4 flex items-end gap-1">
+                      <span className="text-4xl font-semibold">{plan.price}</span>
+                      <span className={plan.featured ? "text-blue-100" : "text-slate-500"}>{plan.detail}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className={`mt-5 text-sm leading-7 ${plan.featured ? "text-blue-50" : "text-slate-600"}`}>
+                  {plan.description}
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <div
+                        className={`mt-0.5 flex h-5 w-5 items-center justify-center rounded-full ${
+                          plan.featured ? "bg-white/20 text-white" : "bg-[#eef6ef] text-[#3f8a4f]"
+                        }`}
+                      >
+                        <Check className="h-3.5 w-3.5" />
+                      </div>
+                      <p className={plan.featured ? "text-blue-50" : "text-slate-700"}>{feature}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="#final-cta"
+                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
+                    plan.featured
+                      ? "bg-white text-[#2d678f] hover:bg-slate-100"
+                      : "bg-slate-950 text-white hover:bg-slate-800"
+                  }`}
+                >
+                  Start Matching
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
