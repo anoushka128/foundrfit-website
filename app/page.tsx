@@ -235,7 +235,7 @@ export default function HomePage() {
     <main className="overflow-x-hidden text-slate-900">
       <section className="relative">
         <div className="hero-mesh calm-hero absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-6 pb-24 pt-6 sm:px-10 lg:px-12">
+        <div className="mx-auto max-w-6xl px-6 pb-24 pt-4 sm:px-10 lg:px-12">
           <header className="flex items-center justify-between py-4">
             <a href="#top" className="flex items-center gap-3">
               <LogoMark className="h-12 w-12 shrink-0" />
@@ -264,14 +264,14 @@ export default function HomePage() {
             </nav>
           </header>
 
-          <div id="top" className="grid items-center gap-14 pt-14 lg:grid-cols-[1fr_0.95fr] lg:pt-20">
+          <div id="top" className="grid items-center gap-12 pt-8 lg:grid-cols-[1fr_0.95fr] lg:pt-10">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
                 <Sparkles className="h-4 w-4" />
                 Early access for college entrepreneurs and early founders
               </div>
 
-              <h1 className="mt-8 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4.25rem] lg:leading-[1.02]">
+              <h1 className="mt-6 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4.25rem] lg:leading-[1.02]">
                 Find the Right Co-Founder in Days
                 <span className="text-slate-400"> — </span>
                 <span className="bg-gradient-to-r from-[#2d678f] to-[#5ca067] bg-clip-text text-transparent">
@@ -279,11 +279,11 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
+              <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
                 Stop wasting time on the wrong people. Get matched with founders who actually fit.
               </p>
 
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#final-cta"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d678f] px-6 py-3.5 text-base font-semibold text-white shadow-[0_14px_34px_rgba(45,103,143,0.22)] transition hover:bg-[#255775]"
