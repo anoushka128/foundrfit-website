@@ -238,12 +238,12 @@ export default function HomePage() {
       <section className="relative">
         <div className="hero-mesh calm-hero absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl px-6 pb-24 pt-0 sm:px-10 lg:px-12">
-          <header className="flex items-center justify-between py-1">
+          <header className="flex items-center justify-between py-0">
             <a href="#top" className="flex items-center gap-3">
-              <LogoMark className="h-12 w-12 shrink-0" />
+              <LogoMark className="h-16 w-16 shrink-0" />
               <div>
-                <p className="text-lg font-semibold tracking-tight text-slate-950">FoundrFit</p>
-                <p className="text-sm text-slate-500">AI co-founder matching</p>
+                <p className="text-xl font-semibold tracking-tight text-slate-950">FoundrFit</p>
+                <p className="text-base text-slate-500">AI co-founder matching</p>
               </div>
             </a>
 
@@ -266,14 +266,14 @@ export default function HomePage() {
             </nav>
           </header>
 
-          <div id="top" className="grid items-center gap-8 pt-0 lg:grid-cols-[1fr_0.95fr] lg:pt-0">
+          <div id="top" className="grid items-center gap-8 pt-0 lg:-mt-4 lg:grid-cols-[1fr_0.95fr]">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-medium text-[#2d678f] shadow-sm backdrop-blur">
                 <Sparkles className="h-4 w-4" />
                 Early access for college entrepreneurs and early founders
               </div>
 
-              <h1 className="mt-4 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4.25rem] lg:leading-[1.02]">
+              <h1 className="mt-2 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-[4rem] lg:leading-[1.01]">
                 Find the Right Co-Founder in Days
                 <span className="text-slate-400"> — </span>
                 <span className="bg-gradient-to-r from-[#2d678f] to-[#5ca067] bg-clip-text text-transparent">
@@ -281,11 +281,11 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-3 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
+              <p className="mt-2 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
                 Stop wasting time on the wrong people. Get matched with founders who actually fit.
               </p>
 
-              <div className="mt-5 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-4 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#final-cta"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d678f] px-6 py-3.5 text-base font-semibold text-white shadow-[0_14px_34px_rgba(45,103,143,0.22)] transition hover:bg-[#255775]"
@@ -301,12 +301,12 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <p className="mt-4 text-sm font-medium text-slate-500">
+              <p className="mt-3 text-sm font-medium text-slate-500">
                 Takes 2 minutes to get your first matches
               </p>
             </div>
 
-            <div className="lg:-mt-4">
+            <div className="lg:-mt-10">
               <ProductVisual />
             </div>
           </div>
@@ -442,7 +442,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="section-surface-a py-16">
+      <section id="pricing" className="section-surface-a py-12">
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <SectionIntro
             eyebrow="Pricing"
@@ -452,41 +452,41 @@ export default function HomePage() {
             compact
           />
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          <div className="mt-5 grid gap-5 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
               <article
                 key={plan.name}
-                className={`relative rounded-[30px] border p-8 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
+                className={`relative rounded-[30px] border p-6 shadow-[0_12px_38px_rgba(15,23,42,0.06)] ${
                   plan.featured
                     ? "border-[#2d678f] bg-[#2d678f] text-white"
                   : "border-slate-200 bg-white text-slate-900"
                 }`}
               >
                 {plan.featured ? (
-                  <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-blue-100">
-                    <span className="border-b border-white/30 pb-1">Most Popular</span>
+                  <div className="absolute right-6 top-6">
+                    <span className="inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2d678f]">
+                      Most Popular
+                    </span>
                   </div>
                 ) : (
-                  <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-transparent">
-                    <span className="border-b border-transparent pb-1">Most Popular</span>
-                  </div>
+                  <div className="h-0" />
                 )}
 
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                    <div className="mt-4 flex items-end gap-1">
+                    <div className="mt-3 flex items-end gap-1">
                       <span className="text-4xl font-semibold">{plan.price}</span>
                       <span className={plan.featured ? "text-blue-100" : "text-slate-500"}>{plan.detail}</span>
                     </div>
                   </div>
                 </div>
 
-                <p className={`mt-5 text-sm leading-7 ${plan.featured ? "text-blue-50" : "text-slate-600"}`}>
+                <p className={`mt-4 text-sm leading-7 ${plan.featured ? "text-blue-50" : "text-slate-600"}`}>
                   {plan.description}
                 </p>
 
-                <div className="mt-7 space-y-4">
+                <div className="mt-6 space-y-3">
                   {plan.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <div
@@ -503,7 +503,7 @@ export default function HomePage() {
 
                 <a
                   href="#final-cta"
-                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
+                  className={`mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
                     plan.featured
                       ? "bg-white text-[#2d678f] hover:bg-slate-100"
                       : "bg-slate-950 text-white hover:bg-slate-800"
