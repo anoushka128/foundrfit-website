@@ -145,18 +145,24 @@ function SectionIntro({
   eyebrow,
   title,
   text,
-  centered
+  centered,
+  dark
 }: {
   eyebrow: string;
   title: string;
   text: string;
   centered?: boolean;
+  dark?: boolean;
 }) {
   return (
     <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#2d678f]">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{title}</h2>
-      <p className="mt-4 text-lg leading-8 text-slate-600">{text}</p>
+      <p className={`text-sm font-semibold uppercase tracking-[0.22em] ${dark ? "text-blue-100" : "text-[#2d678f]"}`}>
+        {eyebrow}
+      </p>
+      <h2 className={`mt-4 text-3xl font-semibold tracking-tight sm:text-4xl ${dark ? "text-white" : "text-slate-950"}`}>
+        {title}
+      </h2>
+      <p className={`mt-4 text-lg leading-8 ${dark ? "text-slate-300" : "text-slate-600"}`}>{text}</p>
     </div>
   );
 }
@@ -392,6 +398,7 @@ export default function HomePage() {
             eyebrow="Testimonials"
             title="Real founder feedback, not generic social proof"
             text="Early users care about speed, fit clarity, and wasting less time on the wrong conversations."
+            dark
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
